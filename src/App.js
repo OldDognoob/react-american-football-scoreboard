@@ -8,6 +8,18 @@ function App() {
   const [homeScore, homeSetScore] =useState(0);
   const [awayScore, awaySetScore] = useState(0);
 
+  //adding resetScore 
+  const[resetScore, setResetScore] =React.useState(0);
+
+  // Using setTimeout function for the reset time
+  setTimeout(()=>{
+    setResetScore('Reset Score!');
+  }, 2000);
+
+ 
+
+
+
   const HomeTouchdownScore = (values)=>{
     homeSetScore(homeScore + 7);
   }
@@ -58,6 +70,10 @@ function App() {
 
           <button onClick={() => AwayFieldScore(awayScore +3)}
           className="awayButtons__fieldGoal">Away Field Goal</button>
+        </div>
+        {/* adding a reset score button */}
+        <div className="resetButton">
+          <button resetButton={resetScore} onClick={()=>setResetScore(0)}>Reset Score</button>
         </div>
       </section>
     </div>
