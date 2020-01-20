@@ -16,7 +16,12 @@ function App() {
     setResetScore('Reset Score!');
   }, 2000);
 
- 
+ //adding handler function
+
+ function handler(team, score){
+   if(team === score) return homeSetScore(homeScore + score)
+   else return awaySetScore(awayScore + score)
+ }
 
 
 
