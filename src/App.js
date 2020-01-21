@@ -11,7 +11,7 @@ function App() {
 
  //adding handler function
   function handler(team , score) {
-    if (team === score) {
+    if (team ==='home') {
       homeSetScore(homeScore + score);
     }else {
       awaySetScore(awayScore + score);
@@ -20,21 +20,6 @@ function App() {
 
  
 
-
-
-  const HomeTouchdownScore = (values)=>{
-    homeSetScore(homeScore + 7);
-  }
-  const AwayTouchdownScore = (values) =>{
-    awaySetScore(awayScore + 7);
-  }
-
-  const AwayFieldScore = (values) => {
-    awaySetScore(awayScore + 3);
-  }
-  const HomeFieldScore = (values) => {
-    homeSetScore(homeScore +3);
-  }
 
 
   return (
@@ -60,18 +45,18 @@ function App() {
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
 
-          <button onClick={() =>HomeTouchdownScore(homeScore +7)}
+          <button onClick={() =>handler('home', 7)}
            className="homeButtons__touchdown">Home Touchdown</button>
 
-          <button onClick={() => HomeFieldScore(homeScore + 3)}
+          <button onClick={() => handler('home', 3)}
           className="homeButtons__fieldGoal">Home Field Goal</button>
           <button onClick={()=>homeSetScore(0)} className="reset_button">Reset HomeScore</button>
         </div>
         <div className="awayButtons">
-          <button onClick={() => AwayTouchdownScore(awayScore +7)}
+          <button onClick={() => handler('away', 7)}
           className="awayButtons__touchdown">Away Touchdown</button>
 
-          <button onClick={() => AwayFieldScore(awayScore +3)}
+          <button onClick={() => handler('away', 3)}
           className="awayButtons__fieldGoal">Away Field Goal</button>
           <button onClick={()=>awaySetScore(0)} className="reset_button">Reset AwayScore</button>
         </div>
